@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contents</title>
+</head>
+<body>
+<h1 th:if="${contents != null}">User : <span th:text="${user}"></span></h1>
+<h1 th:if="${contents == null}">[<span th:text="${user}"></span>] User not found</h1>
+
+<ul style="list-style: none; padding:0;">
+  <li th:each="content : ${contents}" style="display: flex; flex-direction: column; gap: 2px; padding:10px; margin-bottom: 10px; border:1px solid black; border-radius: 10px;">
+    <span th:text="${content.date}" style="font-size: 10px"></span>
+    <span th:text="${content.user}" style="font-weight: bold"></span>
+    <span th:text="${content.content}"></span>
+  </li>
+</ul>
+
+<a href="/" style="text-decoration: none; color:black; font-weight: bold"><h3>Back to Main</h3></a>
+
+</body>
+</html>

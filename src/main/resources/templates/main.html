@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+    <h1>This is Main Page</h1>
+
+    <div style="display: flex;flex-direction: column; gap:10px;">
+    <div style="border:1px solid black; padding: 20px 20px 0 20px; border-radius: 10px;">
+        <h2 style="margin:0;padding: 0;">Contents</h2>
+        <ul style="list-style: none; padding:0;">
+            <li th:each="content : ${contents}" style="display: flex; flex-direction: column; gap: 2px; padding:10px; margin-bottom: 10px; border:1px solid black; border-radius: 10px;">
+                    <span th:text="${content.date}" style="font-size: 10px"></span>
+                <a style="text-decoration: none; color:black; font-weight: bold" th:href="@{'/' + ${content.user}}" th:text="${content.user}">
+                </a>
+                    <span th:text="${content.content}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <form method="POST" action="/" style="display: flex; flex-direction: column; border: 1px solid black; padding: 20px; gap:10px; border-radius: 10px;">
+        <input type="text" id="user" name="user" placeholder="User"/>
+        <textarea type="text" id="content" name="content" placeholder="Content"></textarea>
+        <button type="submit">submit</button>
+    </form></div>
+</body>
+</html>
